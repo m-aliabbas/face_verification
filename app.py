@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from db_interface import DBInterace
 import os
@@ -6,6 +7,16 @@ import base64
 
 app = FastAPI()
 db_int = DBInterace(db_name='test1',k=3)
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.post("/enroll")
 async def create_user(name: str, address: str, city:str,state:str,zip:str, picture: UploadFile = File(...)):
