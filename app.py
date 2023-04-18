@@ -1,9 +1,18 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile,Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from db_interface import DBInterace
 import os
 import base64
+from pydantic import BaseModel
+
+class User(BaseModel):
+    name: str 
+    address: str
+    city: str 
+    state: str
+    zip: str 
+    picture: bytes
 
 app = FastAPI()
 db_int = DBInterace(db_name='test1',k=3)
@@ -19,7 +28,7 @@ app.add_middleware(
 
 
 @app.post("/enroll")
-async def create_user(name: str, address: str, city:str,state:str,zip:str, picture: UploadFile = File(...)):
+async def create_user(name:str,address:str,city:str,state:str,zip:str,picture: UploadFile = File(...)):
     # Save the uploaded file to the server
     with open(f"faces/{picture.filename}", "wb") as buffer:
         buffer.write(await picture.read())

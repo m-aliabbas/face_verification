@@ -2,3 +2,6 @@ deepface==0.0.79
 faiss_cpu==1.7.3
 fastapi==0.95.1
 numpy==1.23.5
+uvicorn[standard]
+multipart
+multipartformdata
