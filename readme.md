@@ -11,7 +11,7 @@ When we run the match function  `localhost:8000/match `is a function interface f
 
 To run server use command
 
-uvicorn  app:app --host 192.168.240.193 --port 8000 
+uvicorn  app:app --host 127.0.0.1 --port 8000 
 
 Use post request at
 
