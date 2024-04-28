@@ -1,6 +1,8 @@
-# Face Recoginition and Verification
+# Facial Search Engine: Face Recognition and Verification
 
-This project is Face Recoginition module based on FaceNet, FastAPI, fasis, and SQLite. Image Embedding using FaceNet is obtain and stored as fasis vector database. And the other data is stored as SQLlite database object. Whenever a new data comes in a row is added to fasis and SQLite. We can access it using
+This project serves as a facial recognition system leveraging FaceNet, FastAPI, fasis, and SQLite. Face images are transformed into embeddings using FaceNet and stored in a fasis vector database. Additional data is stored in an SQLite database. Upon receiving new data, both databases are updated with relevant information.
+
+Use it
 
 `localhost:8000/enroll` using post request.
 
@@ -9,7 +11,7 @@ When we run the match function  `localhost:8000/match `is a function interface f
 
 ## Ussage
 
-To run server use command
+To run server use commanda
 
 uvicorn  app:app --host 127.0.0.1 --port 8000 
 
